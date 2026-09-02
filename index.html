@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07151a">
+  <meta name="description" content="A little birthday magazine made especially for Maanisha.">
+  <title>MAANISHA — The Birthday Issue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="progress"></div>
+
+  <header class="topbar">
+    <span>VOL. 01</span>
+    <span>THE BIRTHDAY ISSUE</span>
+    <button id="soundToggle" aria-label="Toggle ambient sound">♫ <span>sound</span></button>
+  </header>
+
+  <main>
+    <section class="cover page">
+      <div class="grain"></div>
+      <div class="cover-ocean"></div>
+      <div class="cover-copy reveal">
+        <p class="kicker">SPECIAL EDITION · 2026</p>
+        <h1>MAANISHA</h1>
+        <p class="cover-line">A little magazine about a girl<br>worth celebrating.</p>
+        <div class="cover-meta">
+          <span>MEMORIES</span><span>SEA</span><span>FLOWERS</span><span>YOU</span>
+        </div>
+      </div>
+      <div class="cover-photo reveal">
+        <img src="assets/photo-01.jpg" alt="Portrait">
+        <span class="photo-number">01</span>
+      </div>
+      <button class="enter-btn" data-scroll="#opening">OPEN THE ISSUE ↓</button>
+    </section>
+
+    <section id="opening" class="opening page">
+      <div class="section-no">02 / OPENING NOTE</div>
+      <div class="opening-inner">
+        <p class="eyebrow">HEY, YOU.</p>
+        <h2>I made you<br><em>a little something.</em></h2>
+        <p class="lede">Not a normal birthday card. Not another copy-paste wish. Just a tiny corner of the internet filled with photos, ridiculous observations, memories and a few things I don't always say out loud.</p>
+        <p class="signature">— Ashu</p>
+      </div>
+    </section>
+
+    <section class="editorial split-page page">
+      <div class="editorial-image">
+        <img src="assets/photo-02.jpg" alt="Portrait close-up">
+      </div>
+      <div class="editorial-copy">
+        <span class="section-no">03 / THE GIRL</span>
+        <p class="huge-number">03</p>
+        <h2>The girl<br>in the frame.</h2>
+        <p>Some photographs are just photographs. And then there are the ones that make you stop scrolling for a second.</p>
+        <span class="tiny-caption">EDITORIAL PORTRAIT · ARCHIVE</span>
+      </div>
+    </section>
+
+    <section class="bw-spread page">
+      <div class="bw-copy">
+        <span class="section-no">04 / MONOCHROME</span>
+        <h2>Her own<br>kind of<br><em>beautiful.</em></h2>
+        <p>There are about a hundred things that could be written here. I'll spare you the dramatic essay.</p>
+      </div>
+      <div class="bw-photo">
+        <img src="assets/photo-05.jpg" alt="Black and white portrait">
+      </div>
+    </section>
+
+    <section class="contact-sheet page">
+      <div class="section-heading">
+        <div>
+          <span class="section-no">05 / THE ARCHIVE</span>
+          <h2>CONTACT<br><em>SHEET</em></h2>
+        </div>
+        <p>Click a photograph.<br>Keep a memory.</p>
+      </div>
+      <div class="photo-grid">
+        <button class="grid-photo tall" data-photo="assets/photo-03.jpg" data-caption="One of those moments that deserved its own page.">
+          <img src="assets/photo-03.jpg" alt="Photo archive">
+          <span>03</span>
+        </button>
+        <button class="grid-photo" data-photo="assets/photo-04.jpg" data-caption="A frame from the archive.">
+          <img src="assets/photo-04.jpg" alt="Photo archive">
+          <span>04</span>
+        </button>
+        <button class="grid-photo wide" data-photo="assets/photo-06.jpg" data-caption="Proof that you can make an ordinary place look like an editorial set.">
+          <img src="assets/photo-06.jpg" alt="Photo archive">
+          <span>06</span>
+        </button>
+        <button class="grid-photo" data-photo="assets/photo-07.jpg" data-caption="Filed under: unfairly photogenic.">
+          <img src="assets/photo-07.jpg" alt="Photo archive">
+          <span>07</span>
+        </button>
+        <button class="grid-photo tall" data-photo="assets/photo-08.jpg" data-caption="Another one for the birthday archive.">
+          <img src="assets/photo-08.jpg" alt="Photo archive">
+          <span>08</span>
+        </button>
+        <button class="grid-photo wide" data-photo="assets/photo-10.jpg" data-caption="And yes, this one absolutely belongs here.">
+          <img src="assets/photo-10.jpg" alt="Photo archive">
+          <span>10</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="coastal-transition page">
+      <div class="wave-lines"></div>
+      <div class="coastal-inner">
+        <span class="section-no">06 / COASTAL DIARIES</span>
+        <p class="coastal-small">IF SHE WERE A PLACE...</p>
+        <h2>...somewhere<br>near the <em>sea.</em></h2>
+        <p>Because apparently the ocean has a permanent reservation in your heart. 🌊</p>
+        <div class="scroll-cue">KEEP SCROLLING ↓</div>
+      </div>
+    </section>
+
+    <section class="sea-spread page">
+      <div class="sea-image">
+        <div class="fake-sunset"></div>
+        <div class="sea-overlay-text">
+          <span>COASTAL DIARIES · 06</span>
+          <strong>salt in the air.<br>sunlight on the skin.<br>nowhere to rush.</strong>
+        </div>
+      </div>
+      <div class="sea-copy">
+        <span class="section-no">A NOTE FROM THE SHORE</span>
+        <h2>Maybe that's<br>why you love<br>the sea.</h2>
+        <p>It never asks you to be anything other than exactly where you are. Waves come and go. The sky changes. And somehow everything feels a little lighter.</p>
+        <div class="shell">🐚</div>
+      </div>
+    </section>
+
+    <section class="letters page">
+      <div class="section-heading">
+        <div>
+          <span class="section-no">07 / LETTERS FROM THE SHORE</span>
+          <h2>A FEW<br><em>THINGS</em></h2>
+        </div>
+        <p>Open whichever<br>one you want.</p>
+      </div>
+      <div class="letter-row">
+        <button class="letter-card" data-letter="appreciate">
+          <span>LETTER 01</span><b>Something I appreciate about you</b><i>✉</i>
+        </button>
+        <button class="letter-card" data-letter="memory">
+          <span>LETTER 02</span><b>A memory worth keeping</b><i>✉</i>
+        </button>
+        <button class="letter-card" data-letter="wish">
+          <span>LETTER 03</span><b>What I wish for you</b><i>✉</i>
+        </button>
+        <button class="letter-card" data-letter="quiet">
+          <span>LETTER 04</span><b>One thing I don't say enough</b><i>✉</i>
+        </button>
+      </div>
+      <div id="letterDisplay" class="letter-display" aria-live="polite">
+        <p>Choose a letter above.</p>
+      </div>
+    </section>
+
+    <section class="funny page">
+      <div class="funny-photo">
+        <img src="assets/photo-09.jpg" alt="Photo archive">
+      </div>
+      <div class="funny-copy">
+        <span class="section-no">08 / OFFICIAL REPORT</span>
+        <p class="stamp">CLASSIFIED</p>
+        <h2>Things about<br>you that need<br>to be <em>documented.</em></h2>
+        <ul>
+          <li><span>01</span> Unnecessarily dramatic at times.</li>
+          <li><span>02</span> Somehow photogenic without trying.</li>
+          <li><span>03</span> Can turn a normal moment into a story.</li>
+          <li><span>04</span> Has suspiciously strong beach preferences.</li>
+          <li><span>05</span> Still not sure how you manage all of this.</li>
+        </ul>
+        <p class="verdict">VERDICT: <strong>Definitely worth keeping.</strong></p>
+      </div>
+    </section>
+
+    <section class="flowers page">
+      <div class="flower-bg"></div>
+      <div class="flowers-inner">
+        <span class="section-no">09 / FLOWERS FOR YOU</span>
+        <h2>Pick a flower.<br><em>Keep the message.</em></h2>
+        <p>There are five. Don't overthink it.</p>
+        <div class="garden" id="garden">
+          <button class="flower f1" data-message="You deserve soft days and loud laughter.">🌷</button>
+          <button class="flower f2" data-message="Please never underestimate how much your presence matters.">🌸</button>
+          <button class="flower f3" data-message="May this year take you somewhere you've always wanted to go.">🌼</button>
+          <button class="flower f4" data-message="More sunsets. More sea. More reasons to smile.">🌺</button>
+          <button class="flower f5" data-message="And, obviously, more dahibara. This is non-negotiable. 😌">🌻</button>
+        </div>
+        <div id="flowerMessage" class="flower-message"></div>
+      </div>
+    </section>
+
+    <section class="secret page">
+      <div class="secret-card">
+        <span class="section-no">10 / CLASSIFIED</span>
+        <div class="lock">🔐</div>
+        <h2>There is<br>one more page.</h2>
+        <p>But obviously I can't just give it to you.</p>
+        <label for="secretInput">Enter the secret word</label>
+        <div class="secret-form">
+          <input id="secretInput" autocomplete="off" placeholder="hint: something only we know">
+          <button id="unlockBtn">UNLOCK</button>
+        </div>
+        <small>Hint: you can change the password in <code>script.js</code>.</small>
+        <div id="secretResult"></div>
+      </div>
+    </section>
+
+    <section class="cake page">
+      <div class="cake-inner">
+        <span class="section-no">11 / THE BIRTHDAY PAGE</span>
+        <h2>Make a wish.</h2>
+        <p>Tap the candles one by one.</p>
+        <div class="cake-art" id="cake">
+          <div class="flame flame1"></div>
+          <div class="flame flame2"></div>
+          <div class="flame flame3"></div>
+          <div class="candle c1"></div>
+          <div class="candle c2"></div>
+          <div class="candle c3"></div>
+          <div class="cake-top"></div>
+          <div class="cake-body"></div>
+        </div>
+        <div id="cakeMessage" class="cake-message"></div>
+      </div>
+      <div id="confetti"></div>
+    </section>
+
+    <section class="night page">
+      <div class="stars"></div>
+      <div class="moon"></div>
+      <div class="night-ocean"></div>
+      <div class="night-copy">
+        <span class="section-no">12 / AFTER MIDNIGHT</span>
+        <p>One last page.</p>
+        <h2>The world is<br>a pretty big place.</h2>
+        <p class="final-line">I'm glad you're somewhere in mine.</p>
+      </div>
+    </section>
+
+    <section class="final-letter page">
+      <div class="final-inner">
+        <p class="eyebrow">THE LAST PAGE</p>
+        <h2>Happy Birthday,<br><em>Maanisha.</em> 🌸</h2>
+        <div class="handwritten">
+          <p>Dear Maanisha,</p>
+          <p>Here's to another year of beautiful places, ridiculous memories, sunsets, random conversations, and all the things you haven't even imagined yet.</p>
+          <p>I hope you get the kind of year that gives you plenty of reasons to laugh, plenty of places to go, and maybe a little more time somewhere near the sea.</p>
+          <p>Stay exactly as wonderfully you as you can.</p>
+          <p>Happy Birthday. ❤️</p>
+          <p class="signed">— Ashu</p>
+        </div>
+        <button class="restart" data-scroll="#top">READ IT AGAIN ↑</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="photoModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose">×</button>
+    <img id="modalImage" src="" alt="">
+    <p id="modalCaption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
