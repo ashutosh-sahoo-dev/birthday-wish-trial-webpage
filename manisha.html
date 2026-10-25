@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The Maanisha Issue</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Caveat:wght@500&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2e8d5;--ink:#2b2119;--navy:#15365a;--rose:#f3cdd3;--gold:#c8a250;--red:#b3261e;--serif:'Playfair Display',Georgia,serif;--body:'Cormorant Garamond',Georgia,serif;--script:'Caveat','Segoe Script',cursive;--type:'Special Elite','Courier New',monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;height:100%;background:#0e0b0a;color:var(--ink);font:400 19px/1.35 var(--body)}
+#book{position:relative;height:100%;max-width:520px;margin:auto;overflow:hidden;background:#0e0b0a;perspective:1800px}
+.pg{position:absolute;inset:0;overflow-y:auto;padding:24px 20px 96px;visibility:hidden;z-index:1;transform-origin:left center;backface-visibility:hidden;box-shadow:inset 9px 0 14px -9px #0007;transition:transform 1s cubic-bezier(.6,.05,.25,1),filter 1s,visibility 0s 1s}
+.pg.on{visibility:visible;z-index:2;transform:none;filter:none;transition:transform 1s cubic-bezier(.6,.05,.25,1),filter 1s,visibility 0s}
+.pg.out{z-index:3;transform:rotateY(-115deg);filter:brightness(.5);pointer-events:none}
+.pg.on>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--d,0)*80ms + .6s)}
+@keyframes rise{from{opacity:0;translate:0 26px}}
+.mast span{display:inline-block}.pg.on .mast span{animation:ltr 1s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*90ms + .8s)}
+@keyframes ltr{from{opacity:0;translate:0 44px;filter:blur(8px)}}
+.pol,.n{transition:transform .35s}.pol:hover,.pol.b:hover{transform:rotate(0) scale(1.05);z-index:2}
+.glow{animation:gl 2.6s ease-in-out infinite alternate}@keyframes gl{to{filter:drop-shadow(0 0 16px #ffd27a)}}
+.fx{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden}
+.fx i{position:absolute;bottom:-24px;font-style:normal;opacity:0;animation:fl linear infinite}
+@keyframes fl{12%{opacity:.55}to{transform:translateY(-108vh) rotate(50deg);opacity:0}}
+#pr{position:absolute;top:0;left:0;height:3px;width:0;background:var(--gold);z-index:6;transition:width .8s}
+.paper{background:radial-gradient(ellipse at 30% 0,#fff8e8,#e6d8bb)}
+.dark{background:#15100e;color:#f4e7d8}
+.sea{background:linear-gradient(#d3e3f0,#86aac6 40%,#173a5e);color:var(--navy)}
+.kraft{background:repeating-linear-gradient(0deg,#0000 0 3px,#8a6a3a14 3px 4px),#dbc9a6}
+.night{background:radial-gradient(ellipse at 50% 30%,#3b2030,#120b10);color:#f8dfe4}
+.blue{background:linear-gradient(#0b1430,#1d1a33 60%,#0d0a12);color:#f1e2cc}
+.garden{background:linear-gradient(#fbe4d8,#f6c9d4 50%,#e2d6f0)}
+.k{font:600 11px/1 var(--body);letter-spacing:.25em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:8px;margin:0 0 20px;opacity:.75}
+h1{font:500 clamp(34px,10.5vw,52px)/1 var(--serif);margin:.2em 0 .25em;letter-spacing:-.01em}
+h2{font:italic 400 24px/1.1 var(--body);margin:0 0 14px}
+p{margin:0 0 12px}
+.s{font:500 24px/1.1 var(--script)}
+.n{background:#fbf5e6;color:var(--ink);padding:14px 16px;margin:14px 0;transform:rotate(-1.2deg);box-shadow:0 3px 10px #0003;font:500 23px/1.1 var(--script)}
+.n.r{transform:rotate(1.5deg)}.n.p{background:var(--rose)}.n.y{background:#f6e58d}
+.pol{position:relative;background:#fdfaf2;color:var(--ink);padding:9px 9px 6px;box-shadow:0 6px 16px #0005;margin:20px auto;width:80%;transform:rotate(-2deg)}
+.pol.b{transform:rotate(2deg)}
+.pol::before{content:'';position:absolute;top:-10px;left:50%;width:70px;height:20px;margin-left:-35px;background:#e6d5a9aa;transform:rotate(-3deg)}
+.pol .ph{aspect-ratio:4/5}
+.c{display:block;font:500 21px/1.05 var(--script);margin-top:6px}
+.ph{background:linear-gradient(135deg,#d8cbb2,#b7a685) center/cover;display:grid;place-items:center;cursor:pointer;color:#5b4b34;font:11px var(--body);letter-spacing:.2em;text-transform:uppercase}
+.ph::before{content:'+ ' attr(data-p)}.ph.has::before{display:none}.bw{filter:grayscale(1)}
+.row{display:flex;gap:12px;align-items:flex-start}.row>*{flex:1;min-width:0}
+.pg .row .pol{width:100%}
+.btn{font:600 13px var(--body);letter-spacing:.2em;text-transform:uppercase;background:none;border:1px solid currentColor;color:inherit;padding:12px 22px;border-radius:40px;cursor:pointer;margin:12px 0}
+.btn:focus-visible,#nav button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.mast{font:400 clamp(50px,17vw,92px)/.9 var(--serif);margin:4px 0;letter-spacing:.01em}
+.top{display:flex;justify-content:space-between;font:400 15px var(--serif);letter-spacing:.15em}
+.cover{aspect-ratio:3/4;margin:14px 0}
+.tag{font:italic 400 29px/1.05 var(--body)}
+.ch{background:#f7efdc99;border-left:3px solid var(--navy);padding:10px 14px;margin:14px 0;font:15px/1.45 var(--type)}
+.ch h3{font:600 14px var(--serif);letter-spacing:.1em;margin:0 0 6px;color:var(--navy)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.fact{background:#f7efdc;padding:10px;box-shadow:0 2px 6px #0002}
+.fact b{font:400 12px var(--type);letter-spacing:.08em;display:block}.fact span{font:500 22px/1 var(--script)}
+.stamp{display:inline-block;border:3px solid var(--red);color:var(--red);font:400 22px var(--type);padding:2px 10px;transform:rotate(-6deg);letter-spacing:.1em}
+.chk{padding:0;margin:8px 0}.chk li{list-style:none;font:500 22px/1.2 var(--script)}.chk li::before{content:'\2611  '}
+details{background:#fffaf0cc;border-radius:14px;margin:10px 0;padding:11px 14px}
+summary{font:600 17px var(--serif);cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
+details p{margin:8px 0 0;font-size:20px}
+.bloom{text-align:center;font:500 44px/1 var(--script);margin:22px 0;color:#c2577a;text-shadow:0 0 24px #fff}
+.lock{background:#efe2c6;color:var(--ink);padding:18px;text-align:center;margin:20px 0;transform:rotate(-.6deg)}
+input{width:100%;padding:12px;font:18px var(--type);background:#15100e;color:#f4e7d8;border:2px solid #000;border-radius:6px;margin:10px 0}
+.shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.cake{text-align:center;margin:24px 0}.cake .cn{font:500 30px/1.1 var(--script);color:#e8788f;margin:6px 0}
+.cs{display:flex;justify-content:center;gap:16px;height:46px}
+.fl{width:14px;height:32px;border-radius:50% 50% 50% 50%/70% 70% 30% 30%;background:radial-gradient(#fff6c0,#ffb02e 60%,#ff7a00);box-shadow:0 0 18px #ffb02e;animation:fk .5s infinite alternate}
+@keyframes fk{to{transform:scale(1.1,.9) rotate(4deg)}}
+.off .fl{display:none}
+.tier{font-size:82px;line-height:1}
+.hrt{position:fixed;bottom:-30px;color:#e8788f;animation:up 4s linear forwards;pointer-events:none;z-index:9}
+@keyframes up{to{transform:translateY(-110vh);opacity:0}}
+.gold{color:var(--gold)}.ctr{text-align:center}.sm{font-size:16px}
+#nav{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:linear-gradient(#0000,#0009);z-index:5;color:#f4e7d8;font:600 12px var(--body);letter-spacing:.2em}
+#nav button{background:#1a1412cc;color:inherit;border:1px solid #f4e7d866;border-radius:30px;padding:9px 16px;font:inherit;cursor:pointer;backdrop-filter:blur(6px)}
+#nav button:disabled{opacity:.3}
+@media (prefers-reduced-motion:reduce){.pg,.pg.on{transition:none}.pg.out{transform:none}.pg.on>*,.pg.on .mast span,.glow,.fl,.shake{animation:none}.fx{display:none}}
+</style></head><body><div id="book">
+
+<section class="pg dark"><div class="top"><span>THE</span><span>26 OCT 26</span></div>
+<div class="mast">MAANISHA</div><div class="top"><span>THE SPECIAL BIRTHDAY EDITION</span><span>ISSUE</span></div>
+<div data-p="dress" class="ph bw cover"></div>
+<p class="tag">For someone who makes ordinary days a little less ordinary.</p>
+<p class="sm">Dance, dreams, oceans: a life in movement.</p>
+<button class="btn" data-next>Open issue</button></section>
+
+<section class="pg paper"><p class="k">02 / An opening note</p><h1>Before you turn the page&hellip;</h1>
+<p>I could have just wished you Happy Birthday.</p>
+<p>But somehow, that felt a little too ordinary for someone who has been part of so many ordinary moments that became memories.</p>
+<p>So I made you this.</p>
+<p>A little collection of photographs, stories, chaos, laughs, and things I probably wouldn&rsquo;t know how to say properly.</p>
+<p>So&hellip; welcome to your issue.</p>
+<div class="s" style="font-size:34px">&mdash; Ashu &#9825;</div>
+<p class="sm" style="opacity:.6;margin-top:24px">Some stories are best read slowly. Take your time.</p></section>
+
+<section class="pg paper"><p class="k">03 / The girl</p><h1>The girl behind the moments</h1><h2>Some people don&rsquo;t need an introduction.</h2>
+<p class="sm" style="letter-spacing:.15em">KIND HEART &middot; OCEAN SOUL &middot; BEAUTIFUL CHAOS &middot; A LITTLE BIT SUNSHINE &middot; A WHOLE LOT OF YOU</p>
+<div data-p="yellow" class="ph" style="aspect-ratio:4/5;margin:14px 0"></div>
+<div class="row"><div class="pol"><div data-p="selfie1" class="ph"></div><span class="c">Inconsistently consistent &#128541;&#9996;&#65039;</span></div><div class="pol b"><div data-p="kurta" class="ph"></div><span class="c">Same girl&hellip; different views</span></div></div>
+<div class="n">A little bit sunshine. A little bit chaos. A whole lot of you &#9825;</div>
+<div class="n r p">Good things take time &#9825;</div>
+<p class="ctr sm">And there&rsquo;s so much more&hellip;</p></section>
+
+<section class="pg paper"><p class="k">04 / The editorial</p><h1>A study in her</h1><h2>Different photographs. Somehow, always her.</h2>
+<div data-p="beige" class="ph" style="aspect-ratio:4/5;margin-bottom:8px"></div>
+<p class="s ctr">Softer. Braver. Kinder. Chaotic. Beautiful. Real. You.</p>
+<div class="row"><div class="pol"><div data-p="child" class="ph"></div><span class="c">Same girl&hellip; different chapters</span></div><div class="pol b"><div data-p="eyes" class="ph bw"></div><span class="c">The eyes: same spark</span></div></div>
+<div class="row"><div class="pol b"><div data-p="smile" class="ph bw"></div><span class="c">The smile: unchanged</span></div><div class="pol"><div data-p="maroon" class="ph"></div><span class="c">The growth: more beautiful</span></div></div>
+<p class="s ctr">And somehow, all of this is still you &#9825;</p></section>
+
+<section class="pg sea"><p class="k">05 / Coastal diaries</p><h1>She&rsquo;s always had a little something with the sea.</h1>
+<h2>Maybe it&rsquo;s the waves. Maybe it&rsquo;s the quiet. Maybe it&rsquo;s just where she feels most like herself.</h2>
+<div class="n">A little sea. A little sky. A little peace. &#9825;</div>
+<div class="row"><div class="pol"><div data-p="eyes" class="ph"></div><span class="c">Same eyes, different horizons</span></div><div class="pol b"><div data-p="smile" class="ph"></div><span class="c">Her peace looks so good on her</span></div></div>
+<div class="n r">Maybe this is her kind of quiet. &#9825;</div>
+<div class="row"><div class="pol b"><div data-p="saree-side" class="ph"></div><span class="c">Lost in her thoughts, probably somewhere by the sea</span></div><div class="pol"><div data-p="sunset" class="ph"></div><span class="c">Different views. Same peace.</span></div></div>
+<div class="n y">Maybe she doesn&rsquo;t need a reason to love the sea. Maybe she just does. &#127754;</div>
+<p class="sm" style="color:#f4e7d8">I don&rsquo;t have your photo with sea&hellip; but I can imagine you here. &#9825;</p></section>
+
+<section class="pg kraft"><p class="k">06 / How we met</p><h1>The story we didn&rsquo;t know we were starting.</h1><h2>It started with a simple text&hellip; and somehow, it led to all of this.</h2>
+<div class="ch"><h3>1. THE FIRST SNAP &#128123;</h3>Remember the day I randomly texted you on Snap? You told me Cuttack, then where you were studying. Ashutosh is such a common name here &#128557; but parents believe in Mahadev ji, and I do. So it&rsquo;s fine. I like it.</div>
+<div class="pol"><div data-p="smile" class="ph bw"></div><span class="c">First impressions (had no idea then)</span></div>
+<div class="ch"><h3>2. THE CORRIDOR &#128706;</h3>I honestly didn&rsquo;t have the guts to talk to you back then. Still, I put together all my courage and asked you to meet me. The corridor, the lift, the sanitizer machine above the stairs.</div>
+<div class="n r">Strangers then. Somehow, not anymore. &#9825;</div>
+<div class="ch"><h3>3. THE BOOKS &#128218;</h3>The day I went to you for books, I felt like you were frightened of something. Let me tell you, I would never in my dream hurt you. I&rsquo;m just bad at communication and hard at emotions.</div></section>
+
+<section class="pg kraft"><p class="k">07 / How we met</p>
+<div class="pol b"><div data-p="orange" class="ph"></div><span class="c">You were always so graceful</span></div>
+<div class="ch"><h3>4. LEARNING BOUNDARIES &#128172;</h3>From that day I noticed you each day but never approached. Then I asked you a stupid question in snap&hellip; and you were mad. That day I learnt boundaries. I have learnt many things by only talking to you.</div>
+<div class="ch"><h3>5. FREEDOM INTERNATIONAL SCHOOL &#127979;</h3>Physics and physical education lab exams. You helped me with the projects, and I&rsquo;ve also shared a stupid note in wp. I still feel cringe about that.</div>
+<div class="pol"><div data-p="eyes" class="ph bw"></div><span class="c">Same eyes. Different stories.</span></div>
+<div class="ch"><h3>6. THE FIRST REAL CONVERSATION</h3>Finally, the only day I talked to you. I was really really happy &#128522; that day I slept well like a child.</div>
+<div class="n y">You helped. You supported. You didn&rsquo;t have to, but you did. &#9825;</div>
+<p class="s ctr">And still&hellip; so many things left unsaid.</p></section>
+
+<section class="pg paper"><p class="k">08 / Things I never said</p><h1 style="color:var(--navy)">A few things I never said&hellip;</h1><h2>Same thoughts. Different page.</h2>
+<p><i>Hey,</i> there are so many things I feel, but never really say. Maybe because I overthink. Maybe because I&rsquo;m still figuring out how to put feelings into words. But here, in this little space, I just want to be honest.</p>
+<p>I&rsquo;m really grateful you&rsquo;re a part of my life. You bring a calmness, a warmth, and a different kind of happiness, the kind I didn&rsquo;t know I needed. You make the simplest moments better, just by being you.</p>
+<p>I admire how you stay true to yourself, how you value your peace, how you handle things with so much grace. You inspire me to be a better version of myself.</p>
+<p>I know I&rsquo;m not always the best with words. Sometimes I overthink, sometimes I stay quiet, sometimes I act weird, but just know, it&rsquo;s never because I don&rsquo;t care.</p>
+<p><b>I care. A lot.</b> And I hope you&rsquo;re always happy, always at peace, and always surrounded by people who truly value you, because you deserve nothing less. &#9825;</p>
+<div class="row"><div class="pol"><div data-p="smile" class="ph bw"></div><span class="c">That smile. &#9825;</span></div><div class="pol b"><div data-p="seaback" class="ph"></div><span class="c">A mind full of dreams</span></div></div>
+<div class="n"><b class="sm" style="font-family:var(--type)">NOTES TO YOU:</b><ul class="chk"><li>Stay kind</li><li>Stay weird</li><li>Stay real</li><li>Stay happy</li><li>Keep shining</li><li>You got this</li><li>Always you</li></ul></div>
+<div class="n r p">A reminder: you are enough. Always.</div><p class="s ctr">Thank you&hellip; for being you. &#9825;</p></section>
+
+<section class="pg kraft"><p class="k">09 / An official report</p><span class="stamp">CONFIDENTIAL</span>
+<p class="sm" style="font-family:var(--type);margin-top:12px">SUBJECT: MAANISHA &#128081;</p><h1>A very serious investigation into you. &#9825;</h1>
+<div class="grid2"><div class="fact"><b>KNOWN WEAKNESS</b><span>Dahibara &#9825; (good food = good mood)</span></div><div class="fact"><b>NATURAL HABITAT</b><span>Near the sea. Sunsets, waves and peace.</span></div><div class="fact"><b>SPECIAL ABILITY</b><span>Making ordinary moments memorable.</span></div><div class="fact"><b>SOCIAL CIRCLE</b><span>Small. Very selective. Quality &gt; quantity.</span></div><div class="fact"><b>DANCE MODE</b><span>Activated without warning. When the music hits, it&rsquo;s over!</span></div><div class="fact"><b>WARNING</b><span>Can randomly become adorable. Handle with care.</span></div></div>
+<div class="row"><div class="pol"><div data-p="smile" class="ph"></div><span class="c">Evidence A: pure happiness</span></div><div class="pol b"><div data-p="eyes" class="ph bw"></div><span class="c">Evidence C: same eyes, different stories</span></div></div>
+<div class="n"><b class="sm" style="font-family:var(--type)">STATUS: 100% MAANISHA &#9825;</b><ul class="chk"><li>Beautiful (obviously)</li><li>Kind</li><li>Strong (even when it&rsquo;s hard)</li><li>A little mysterious</li><li>Overthinks (maybe)</li><li>Inspires without even trying</li><li>Makes everything feel lighter</li><li>One of a kind</li></ul></div>
+<div class="n r p">A rare combination of soft heart and strong soul. &#9825;</div>
+<p style="font-family:var(--type);font-size:15px">VERDICT: Further investigation required. :)</p><span class="stamp" style="font-size:18px">CASE ONGOING&hellip;</span>
+<p class="s ctr" style="margin-top:14px">Conclusion? Still figuring it out&hellip; and that&rsquo;s the beautiful part. &#9825;</p></section>
+
+<section class="pg garden"><p class="k">10 / A little garden</p><h1>For all the things that deserve to bloom. &#9825;</h1><h2>A garden of reminders, just for you. Tap each flower.</h2>
+<details><summary>&#127801; Flower 01</summary><p>For the days you need a little reminder that you&rsquo;re doing okay. You are, always.</p></details>
+<details><summary>&#127804; Flower 02</summary><p>For every little thing you make better without realizing it.</p></details>
+<details><summary>&#128144; Flower 03</summary><p>For the person you are becoming. Stronger, kinder and more you.</p></details>
+<details><summary>&#127803; Flower 04</summary><p>For all the happiness still waiting for you. Brighter days, softer moments, bigger dreams.</p></details>
+<details><summary>&#127799; Flower 05</summary><p>For the calm in your chaos. You handle more than you think.</p></details>
+<details><summary>&#128156; Flower 06</summary><p>For your laughter, your random thoughts, and the way you make everything feel lighter.</p></details>
+<details><summary>&#127802; Flower 07</summary><p>For always being real. For always being you. And for simply existing.</p></details>
+<div class="bloom">Keep blooming.<div class="sm" style="font-family:var(--body);letter-spacing:.2em">AT YOUR OWN PACE &#9825;</div></div>
+<div class="pol"><div data-p="stripes" class="ph"></div><span class="c">You, just you. And that&rsquo;s enough.</span></div></section>
+
+<section class="pg dark" id="lock"><p class="k">11 / Classified</p><h1>This page wasn&rsquo;t supposed to exist.</h1><p class="sm">Some things are just meant for you. &#9825;</p>
+<div class="row"><div class="pol"><div data-p="stripes" class="ph"></div><span class="c">Case 11: Maanisha</span></div><div class="pol b"><div data-p="selfie2" class="ph"></div><span class="c">Evidence A: unfiltered you</span></div></div>
+<div class="lock" id="lk"><span class="stamp">TOP SECRET</span><p style="font:600 15px var(--type);margin:12px 0 0">ACCESS RESTRICTED<br>For Maanisha&rsquo;s eyes only.</p>
+<p>&#128274; Enter the secret word.<br><span class="sm">Hint: your favourite &#128525; food name.</span></p>
+<input id="pw" placeholder="Type here&hellip;" autocomplete="off" aria-label="Secret word"><button class="btn" id="un" style="background:#15100e;color:#f4e7d8">Unlock the file</button><p id="lm" class="sm">Some secrets are worth the wait. &#9825;</p></div>
+<div class="n sm">Possible passwords? Pizza &#10005; Pasta &#10005; Icecream &#10005; Dahibara? Think again&hellip;</div></section>
+
+<section class="pg night"><p class="k">12 / The day</p><h1>Today is yours.</h1><p>A day to celebrate you, your kindness, your chaos, your dreams, your everything. &#9825;</p>
+<div class="row"><div class="pol"><div data-p="child" class="ph"></div><span class="c">Little you&hellip; big dreams.</span></div><div class="pol b"><div data-p="dress" class="ph bw"></div><span class="c">Elegant, kind and so you.</span></div></div>
+<div class="cake" id="ck"><div class="s">Make a wish&hellip;</div><div class="cs"><i class="fl"></i><i class="fl"></i><i class="fl"></i><i class="fl"></i><i class="fl"></i><i class="fl"></i></div><div class="tier">&#127874;</div><div class="cn">Happy Birthday, Maanisha &#9825;</div><p class="sm">26 OCT 26</p>
+<p>I hope this year gives you more reasons to smile, more places to go, more things to dance for, and a lot of moments worth remembering.</p>
+<button class="btn" id="bl">Blow out the candles</button><p class="s" id="wm">Make a wish. And let it all begin&hellip; &#9825;</p></div>
+<div class="n r">A kinder, braver, happier you. &#9825;</div></section>
+
+<section class="pg blue"><p class="k">13 / A blessing</p><h1>May Mahadev always walk beside you.</h1><p style="font-style:italic">In every mood, in every moment, in every chapter. &#9825;</p>
+<div class="ctr glow" style="font-size:78px;margin:8px 0">&#127769;&#128305;</div>
+<div class="n" style="background:#2a2233;color:#f1e2cc;transform:rotate(-1deg)">May you be as strong as the mountains, as calm as the ocean, and as beautiful as the chaos you carry. &#9825;</div>
+<p class="ctr">May Mahadev give you the <span class="gold">strength</span> to face every difficult day, the <span class="gold">courage</span> to follow your dreams, and the <span class="gold">peace</span> to enjoy the beautiful ones.</p>
+<p class="ctr">May you always be protected, guided and blessed.</p>
+<p class="ctr gold" style="font-size:24px">Har Har Mahadev &#128305; &#9825;</p>
+<p class="ctr glow" style="font-size:56px;margin:14px 0">&#128329;&#65039;</p>
+<p class="s ctr">Some wishes are bigger than birthdays.</p><p class="ctr sm">Faith &middot; Patience &middot; A brighter you &middot; Always</p></section>
+
+<section class="pg dark ctr"><p class="k">14 / Until next time</p>
+<div style="font-size:64px;margin:60px 0 10px">&#128140;</div><h1>Until next time&hellip;</h1>
+<p class="tag">Same girl. Brighter days.</p>
+<p>Some people become memories. Some become chapters. And some just quietly become part of your story.</p>
+<div class="s" style="font-size:40px;color:#f3a9b8">&mdash; Ashu &#9825;</div>
+<button class="btn" id="re">Read it again</button></section>
+
+<div class="fx" id="fx"></div><div id="pr"></div>
+<div id="nav"><button id="pv" aria-label="Previous page">&larr; BACK</button><span id="ct"></span><button id="nx" aria-label="Next page">TURN THE PAGE &rarr;</button></div>
+</div>
+<script>
+const P=[...document.querySelectorAll('.pg')],$=id=>document.getElementById(id);let i=0,ok=false,bad=0;
+function go(n){if(n<0||n>=P.length)return;if(P[i].id==='lock'&&n>i&&!ok){shk();return}
+i=n;P.forEach((p,k)=>{p.classList.toggle('on',k===i);p.classList.toggle('out',k<i)});P[i].scrollTop=0;$('pr').style.width=(i+1)/P.length*100+'%';$('ct').textContent=(i+1)+' / '+P.length;$('pv').disabled=!i;$('nx').disabled=i===P.length-1}
+function shk(){const l=$('lk');l.classList.remove('shake');void l.offsetWidth;l.classList.add('shake')}
+$('pv').onclick=()=>go(i-1);$('nx').onclick=()=>go(i+1);$('re').onclick=()=>go(0);
+document.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>go(i+1));
+addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.key==='ArrowRight')go(i+1);if(e.key==='ArrowLeft')go(i-1)});
+let x0=0;$('book').addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+$('book').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>70)go(i+(d<0?1:-1))});
+function unlock(){const v=$('pw').value.toLowerCase().replace(/[^a-z]/g,'');
+if(/^dahi(bara|bada|vada)/.test(v)){ok=true;$('lm').textContent='Access granted. Opening the file\u2026 \u2665';setTimeout(()=>go(i+1),1200)}
+else{bad++;shk();$('lm').textContent=bad>2?'Hint: starts with D, ends with a. \ud83d\ude09':'Wrong word. Think again\u2026'}}
+$('un').onclick=unlock;$('pw').onkeydown=e=>{if(e.key==='Enter')unlock()};
+$('bl').onclick=()=>{$('ck').classList.add('off');$('wm').textContent='Wish made \u2728 Now let it all begin\u2026 \u2665';
+for(let k=0;k<26;k++){const h=document.createElement('span');h.className='hrt';h.textContent='\u2665';h.style.left=Math.random()*100+'%';h.style.fontSize=14+Math.random()*22+'px';h.style.animationDelay=Math.random()*1.5+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),6000)}};
+const f=document.createElement('input');f.type='file';f.accept='image/*';let t;
+document.querySelectorAll('.ph').forEach(e=>e.onclick=()=>{t=e;f.click()});
+f.onchange=()=>{if(f.files[0]){t.style.backgroundImage='url('+URL.createObjectURL(f.files[0])+')';t.classList.add('has')}};
+P.forEach(p=>[...p.children].forEach((c,k)=>c.style.setProperty('--d',Math.min(k,9))));
+const m=document.querySelector('.mast');m.innerHTML=[...m.textContent].map((c,k)=>'<span style="--i:'+k+'">'+c+'</span>').join('');
+for(let k=0;k<14;k++){const e=document.createElement('i');e.textContent=['\u2661','\u2726','\u2665'][k%3];e.style.cssText='left:'+Math.random()*96+'%;font-size:'+(11+Math.random()*14)+'px;color:'+(k%2?'#c8a250':'#e8788f')+';animation-duration:'+(12+Math.random()*10)+'s;animation-delay:-'+Math.random()*20+'s';$('fx').appendChild(e)}
+document.querySelectorAll('.ph[data-p]').forEach(e=>{const x=['jpg','jpeg','png','webp'];(function t(k){if(k>=x.length)return;const im=new Image(),u='img/'+e.dataset.p+'.'+x[k];im.onload=()=>{e.style.backgroundImage='url('+u+')';e.classList.add('has')};im.onerror=()=>t(k+1);im.src=u})(0)});
+go(0);
+</script></body></html>
